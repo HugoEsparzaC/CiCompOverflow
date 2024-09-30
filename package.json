@@ -1,0 +1,36 @@
+{
+  "name": "cicompoverflow",
+  "version": "1.0.0",
+  "description": "A forum platform designed for Computer Science students to collaborate, ask questions, and share knowledge, inspired by Stack Overflow.",
+  "type": "module",
+  "main": "gulpfile.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:build/css",
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HugoEsparzaC/CiCompOverflow.git"
+  },
+  "keywords": [
+    "HTML",
+    "CSS",
+    "SASS",
+    "JavaScript",
+    "PHP"
+  ],
+  "author": "Hugo Esparza Castañeda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HugoEsparzaC/CiCompOverflow/issues"
+  },
+  "homepage": "https://github.com/HugoEsparzaC/CiCompOverflow#readme",
+  "devDependencies": {
+    "glob": "^11.0.0",
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.79.4",
+    "sharp": "^0.33.5"
+  }
+}
