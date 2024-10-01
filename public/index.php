@@ -7,4 +7,4 @@ use MVC\Router;
 $router = new Router();
 
 // Checks and validates the routes that exist and assigns them the Controller functions
-$router->comprobarRutas();
+$router->checkRoutes();
