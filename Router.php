@@ -1,29 +1,21 @@
 <?php
 namespace MVC;
 
-class Router
-{
+class Router {
     public array $getRoutes = [];
     public array $postRoutes = [];
 
-    public function get($url, $fn)
-    {
+    public function get($url, $fn) {
         $this->getRoutes[$url] = $fn;
     }
 
-    public function post($url, $fn)
-    {
+    public function post($url, $fn) {
         $this->postRoutes[$url] = $fn;
     }
 
-    public function checkRoutes()
-    {
+    public function checkRoutes() {
         // Protect Routes...
         session_start();
-
-        // Array of protected routes...
-        // $protected_routes = ['/admin', '/properties/create', '/properties/update', '/properties/delete', '/sellers/create', '/sellers/update', '/sellers/delete'];
-        // $auth = $_SESSION['login'] ?? null;
 
         $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
@@ -42,8 +34,7 @@ class Router
         }
     }
 
-    public function render($view, $datos = [])
-    {
+    public function render($view, $datos = []) {
         // Read what we pass to the view
         foreach ($datos as $key => $value) {
             $$key = $value;  // Double dollar sign means: variable variable, basically our variable remains the original, but when assigning it to another it does not overwrite it, it keeps its value, this way the variable name is assigned dynamically
