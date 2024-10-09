@@ -9,21 +9,30 @@ body {
     font-family: v.$main_font;
     font-size: 1.6rem;
     font-style: normal;
+    overflow: hidden;
+    background-color: v.$white;
+    &.darkmode {
+        background-color: v.$black-color;
+    }
 }
 *, *:before, *:after {
     box-sizing: inherit;
 }
 .contenedor {
     width: 95%;
-    max-width: 120rem;
+    max-width: 130rem;
     margin: 0 auto;
 }
 a {
     text-decoration: none;
 }
+body.darkmode h1, h2, h3 {
+    color: v.$green;
+}
 h1, h2, h3 {
     margin: 0 0 5rem 0;
     font-weight: 900;
+    color: v.$black-color;
 }
 h1 {
     font-size: 4rem;
