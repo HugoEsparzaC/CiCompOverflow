@@ -44,6 +44,19 @@
 
     <?php echo $content; ?>
 
+    <footer class="footer">
+        <div class="redes-sociales">
+            <a target="_blank" href="https://github.com/HugoEsparzaC/CiCompOverflow" class="github">
+                <img src="build/img/Github_light.svg" alt="Logo GitHub" class="imagen-red-social">
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/in/hugoesparzac/">
+                <img src="build/img/linkedin.svg" alt="Logo GitHub" class="imagen-red-social">
+            </a>
+        </div>
+        <div class="contenedor contenido-footer">
+            <p class="copyright">Todos los derechos Reservados. Hugo Esparza Castañeda &copy; <?php echo date('Y') ?></p>
+        </div>
+    </footer>
     <script src="build/js/app.js"></script>
 </body>
 </html>

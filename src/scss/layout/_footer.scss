@@ -1,0 +1,28 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+body.darkmode .footer {
+    background-color: v.$darknavyblue;
+    color: v.$white;
+}
+
+.footer {
+    text-align: center;
+    background-color: #DFE9F3;
+    padding: 2rem 0;
+}
+
+.redes-sociales {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-red-social {
+    max-width: 3rem;
+    margin: 1rem;
+}
+
+body.darkmode .github .imagen-red-social {
+    content: url("../img/Github_dark.svg");
+}
