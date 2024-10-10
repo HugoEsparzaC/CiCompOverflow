@@ -54,3 +54,19 @@ themeSwitch.addEventListener("click", () => {
         disableDarkMode();
     }
 });
+
+
+// Selecciona el header y el footer
+const header = document.querySelector('.header');
+const footer = document.querySelector('.footer');
+const contenidoPrincipal = document.querySelector('.contenido-principal');
+
+// Obtiene las alturas del header y footer
+const alturaHeader = header.clientHeight;
+const alturaFooter = footer.clientHeight;
+
+// Calcula la altura mínima del contenido principal
+const alturaMinima = `calc(100vh - ${alturaHeader + alturaFooter}px)`;
+
+// Aplica la altura mínima al contenido principal
+contenidoPrincipal.style.minHeight = alturaMinima;

@@ -1,0 +1,72 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenido-principal {
+    column-gap: 4rem;
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: 3fr 7fr 3fr;
+    }
+    @include m.desktop {
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+    }
+}
+
+body.darkmode .menu-aside {
+    border-right: 1px solid v.$white;
+}
+
+.menu-aside {
+    border-right: 1px solid v.$black-color;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.6rem;
+    a {
+        color: v.$black-color;
+        font-size: 2rem;
+    }
+}
+
+body.darkmode .menu-aside {
+    a {
+        color: v.$white;
+    }
+}
+
+body.darkmode .imagen-home img {
+    content: url('../img/home-dark.svg');
+}
+
+body.darkmode .imagen-questions img {
+    content: url('../img/questions-dark.svg');
+}
+
+body.darkmode .imagen-tags img {
+    content: url('../img/tags-dark.svg');
+}
+
+body.darkmode .imagen-users img {
+    content: url('../img/users-dark.svg');
+}
+
+body.darkmode .imagen-unanswered img {
+    content: url('../img/unanswered-dark.svg');
+}
+
+main {
+    flex: 1;
+}
+
+.pagina {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding: 0.75rem 0;
+}
+
+.imagen-menu {
+    max-width: 2rem;
+    margin-right: 0.5rem;
+}
