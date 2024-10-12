@@ -41,9 +41,11 @@
             </div>
         </div>
     </header>
+    <div class="contenedor contenido-principal">
 
     <?php echo $content; ?>
 
+    </div>
     <footer class="footer">
         <div class="redes-sociales">
             <a target="_blank" href="https://github.com/HugoEsparzaC/CiCompOverflow" class="github">
