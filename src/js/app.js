@@ -1,41 +1,60 @@
 // Obtener el estado del modo oscuro y del botón desde localStorage
-const darkmode = localStorage.getItem('darkmode') === 'true';
-const buttonState = localStorage.getItem('buttonState') === 'true';
-const themeSwitch = document.querySelector('.switch'); // Acceder al primer elemento con la clase 'switch'
+let darkmode = localStorage.getItem('darkmode');
+let buttonState = localStorage.getItem('buttonState');
+const themeSwitch = document.getElementsByClassName('switch')[0]; // Acceder al primer elemento con la clase 'switch'
 
 // Funciones para activar/desactivar el modo oscuro
-const toggleDarkMode = (enable) => {
-    if (enable) {
-        document.body.classList.add('darkmode');
-        localStorage.setItem('darkmode', 'true');
-    } else {
-        document.body.classList.remove('darkmode');
-        localStorage.setItem('darkmode', 'false');
-    }
+const enableDarkMode = () => {
+    document.body.classList.add('darkmode');
+    localStorage.setItem('darkmode', 'active');
+}
+
+const disableDarkMode = () => {
+    document.body.classList.remove('darkmode');
+    localStorage.setItem('darkmode', null);
 }
 
 // Función para activar/desactivar el estado visual del botón
-const toggleButtonActive = (enable) => {
-    if (enable) {
-        themeSwitch.classList.add('active');
-        localStorage.setItem('buttonState', 'true');
-    } else {
-        themeSwitch.classList.remove('active');
-        localStorage.setItem('buttonState', 'false');
-    }
+const enableButtonActive = () => {
+    themeSwitch.classList.add('active');
+    localStorage.setItem('buttonState', 'active');
+}
+
+const disableButtonActive = () => {
+    themeSwitch.classList.remove('active');
+    localStorage.setItem('buttonState', null);
 }
 
 // Verificar y aplicar el estado inicial del modo oscuro y del botón
-toggleDarkMode(darkmode);
-toggleButtonActive(buttonState);
+if (darkmode === "active") enableDarkMode();
+if (buttonState === "active") enableButtonActive();
 
-document.addEventListener('DOMContentLoaded', () => {
-    themeSwitch.addEventListener("click", () => {
-        const isActive = themeSwitch.classList.toggle('active');
-        toggleButtonActive(isActive);
-        toggleDarkMode(!darkmode); // Alternar entre modos
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    darkModeToggle();
 });
+
+function darkModeToggle() {
+    // Alternar visualmente la clase 'active' del botón
+    const buttonDarkMode = document.querySelector('.switch');
+    buttonDarkMode.addEventListener('click', function() {
+        if (buttonDarkMode.classList.contains('active')) {
+            disableButtonActive(); // Desactivar visualmente el botón
+        } else {
+            enableButtonActive(); // Activar visualmente el botón
+        }
+    });
+}
+
+// Alternar entre modo oscuro y claro al hacer clic
+themeSwitch.addEventListener("click", () => {
+    darkmode = localStorage.getItem('darkmode');
+    if (darkmode !== "active") {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+});
+
 
 // Selecciona el header y el footer
 const header = document.querySelector('.header');

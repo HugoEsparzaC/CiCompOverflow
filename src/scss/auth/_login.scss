@@ -1,0 +1,105 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+body.darkmode .login {
+    h1 {
+        color: v.$white;
+    }
+}
+
+.phone-login {
+    height: 5rem;
+    @include m.tablet {
+        height: 0;
+    }
+}
+
+.login {
+    h1 {
+        color: v.$white;
+        text-align: center;
+        padding-bottom: 0.5rem;
+    }
+    margin: auto;
+    height: auto;
+    width: 100%;
+    background-color: v.$purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    div {
+        padding: 1.2rem;
+    }
+    a {
+        color: v.$white;
+        &:hover {
+            color: v.$green;
+        }
+    }
+    .forgot-pass {
+        text-align: center;
+    }
+    .signup-link {
+        color: v.$white;
+        text-align: center;
+    }
+    .login-button {
+        background-color: v.$indigo;
+        color: v.$white;
+        padding: 1rem 3rem;
+        font-size: 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 1rem;
+        width: auto;
+        text-align: center;
+        margin-bottom: 2rem;
+        border: none;
+        &:hover {
+            cursor: pointer;
+            color: v.$green;
+        }
+    }
+    @include m.desktop {
+        .login-button {
+            width: 60%;
+        }
+    }
+}
+
+.login form {
+    width: 70%;
+}
+
+.campo {
+    background-color: v.$white;
+    border-radius: 2rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.login input[type="email"] {
+    background: transparent;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: v.$black-color;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.login  input[type="password"] {
+    background: transparent;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: v.$black-color;
+    border: none;
+    outline: none;
+    width: 100%;
+}
