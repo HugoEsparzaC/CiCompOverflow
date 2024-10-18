@@ -1,3 +1,22 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
+.login  input[type="text"] {
+    background: transparent;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: v.$black-color;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.login  select {
+    background: transparent;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: v.$black-color;
+    border: none;
+    outline: none;
+    width: 100%;
+}
