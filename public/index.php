@@ -23,6 +23,10 @@ $router->post('/account-recovery', [LoginController::class, 'accountRecovery']);
 $router->get('/signup', [LoginController::class, 'signup']);
 $router->post('/signup', [LoginController::class, 'signup']);
 
+// Confirm account
+$router->get('/confirm-account', [LoginController::class, 'confirmAccount']);
+$router->get('/message', [LoginController::class, 'message']);
+
 // Main page
 $router->get('/', [PagesController::class, 'index']);
 

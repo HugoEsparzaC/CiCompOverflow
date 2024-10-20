@@ -1,7 +1,7 @@
 <?php
 namespace Model;
 class ActiveRecord {
-    public $id;
+    public $id_user;
 
     // Database
     protected static $db;
@@ -93,7 +93,7 @@ class ActiveRecord {
     // Save a record
     public function save() {
         $result = '';
-        if (!is_null($this->id)) {
+        if (!is_null($this->id_user)) {
             // Update
             $result = $this->update();
         } else {
@@ -117,6 +117,13 @@ class ActiveRecord {
         return array_shift( $result ) ;
     }
 
+    // Search for a record by its column
+    public static function where($column, $value) {
+        $query = "SELECT * FROM " . static::$table  ." WHERE $column = '{$value}'";
+        $result = self::querySQL($query);
+        return array_shift( $result ) ;
+    }
+
     // Get a limited number of records
     public static function get($limit) {
         $query = "SELECT * FROM " . static::$table . " LIMIT {$limit}";
@@ -134,6 +141,8 @@ class ActiveRecord {
         $query .= ") VALUES ('";
         $query .= join("', '", array_values($attributes));
         $query .= "')";
+        // remplazar 'CURDATE()' por CURDATE()
+        $query = str_replace("'CURDATE()'", "CURDATE()", $query);
         // Result of the query
         $result = self::$db->query($query);
         return [
@@ -154,7 +163,7 @@ class ActiveRecord {
         // SQL query
         $query = "UPDATE " . static::$table . " SET ";
         $query .= join(', ', $values);
-        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+        $query .= " WHERE id = '" . self::$db->escape_string($this->id_user) . "' ";
         $query .= " LIMIT 1";
         // Update DB
         $result = self::$db->query($query);
@@ -163,7 +172,7 @@ class ActiveRecord {
 
     // Delete a record by its ID
     public function delete() {
-        $query = "DELETE FROM " . static::$table . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $query = "DELETE FROM " . static::$table . " WHERE id = " . self::$db->escape_string($this->id_user) . " LIMIT 1";
         $result = self::$db->query($query);
         return $result;
     }
