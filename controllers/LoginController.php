@@ -60,12 +60,11 @@ Class LoginController {
         $alerts = [];
         $token = s($_GET['token']);
         $usuario = Usuario::where('token', $token);
-        debuguear($usuario);
         if(empty($usuario)) {
             Usuario::setAlert('error', 'Token no válido');
         } else {
             $usuario->status_user = 'Verificado';
-            $usuario->token = NULL;
+            $usuario->token = null;
             $usuario->save();
             Usuario::setAlert('exito', 'Cuenta verificada correctamente');
         }

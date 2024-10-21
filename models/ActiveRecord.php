@@ -163,7 +163,7 @@ class ActiveRecord {
         // SQL query
         $query = "UPDATE " . static::$table . " SET ";
         $query .= join(', ', $values);
-        $query .= " WHERE id = '" . self::$db->escape_string($this->id_user) . "' ";
+        $query .= " WHERE id_user = '" . self::$db->escape_string($this->id_user) . "' ";
         $query .= " LIMIT 1";
         // Update DB
         $result = self::$db->query($query);
