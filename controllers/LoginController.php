@@ -8,7 +8,33 @@ use Model\Usuario;
 
 Class LoginController {
     public static function login( Router $router ) {
-        $router->render('auth/login');
+        $alerts = [];
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $auth = new Usuario($_POST);
+            $alerts = $auth->validarLogin();
+            if(empty($alerts)) {
+                $usuario = Usuario::where('email', $auth->email);
+                if($usuario) {
+                    if($usuario->comprobarPasswordAndUserStatus($auth->password)) {
+                        session_start();
+                        $_SESSION['id'] = $usuario->id_user;
+                        $_SESSION['nombre'] = $usuario->nickname;
+                        $_SESSION['email'] = $usuario->email;
+                        $_SESSION['login'] = true;
+                        if($usuario->admin === '1') {
+                            $_SESSION['admin'] = $usuario->admin ?? null;
+                        }
+                        header('Location: /');
+                    }
+                } else {
+                    Usuario::setAlert('error', 'Usuario no encontrado');
+                }
+            }
+        }
+        $alerts = Usuario::getAlerts();
+        $router->render('auth/login', [
+            'alerts' => $alerts
+        ]);
     }
 
     public static function logout( Router $router ) {

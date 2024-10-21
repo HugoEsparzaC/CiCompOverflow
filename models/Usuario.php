@@ -46,11 +46,9 @@ class Usuario extends ActiveRecord {
         if(!$this->email) {
             self::$alerts['error'][] = 'El correo electrónico es obligatorio';
         }
-        /*
         if($this->email and (!filter_var($this->email, FILTER_VALIDATE_EMAIL) or strlen($this->email) != 24 or substr($this->email, 0, 1) != 'a' or substr($this->email, -14) != '@alumnos.uaslp.mx')) {
             self::$alerts['error'][] = 'Correo electrónico no válido, asegurate de que sea tu correo institucional de la UASLP';
         }
-        */
         if($this->password and strlen($this->password) < 8) {
             self::$alerts['error'][] = 'La contraseña debe contener al menos 8 caracteres';
         }
@@ -85,5 +83,24 @@ class Usuario extends ActiveRecord {
 
     public function crearToken() {
         $this->token = uniqid();
+    }
+
+    public function validarLogin() {
+        if(!$this->email) {
+            self::$alerts['error'][] = 'El correo electrónico es obligatorio';
+        }
+        if(!$this->password) {
+            self::$alerts['error'][] = 'La contraseña es obligatoria';
+        }
+        return self::$alerts;
+    }
+
+    public function comprobarPasswordAndUserStatus($password) {
+        $resultado = password_verify($password, $this->password);
+        if(!$resultado or $this->status_user != 'Verificado') {
+            self::$alerts['error'][] = 'Contraseña incorrecta o cuenta no verificada';
+        } else {
+            return true;
+        }
     }
 }

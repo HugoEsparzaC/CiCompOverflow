@@ -28,7 +28,7 @@ use PHPMailer\PHPMailer\PHPMailer;
             $mail->CharSet = 'UTF-8';
             $contenido = '<html>';
             $contenido .= '<p><strong>Hola ' . $this->nombre . '</strong> Has creado tu cuenta en CiCompOverflow, solo debes confirmarla presionando el siguiente enlace</p>';
-            $contenido .= '<p>Presiona aquí: <a href="http://localhost:3000/confirm-account?token=' . $this->token . '">Confirmar cuenta</a></p>';
+            $contenido .= '<p>Presiona aquí: <a href="' . $_ENV['APP_URL'] . '/confirm-account?token=' . $this->token . '">Confirmar cuenta</a></p>';
             $contenido .= '<p>Si no has creado una cuenta en CiCompOverflow, ignora este mensaje</p>';
             $contenido .= '</html>';
             $mail->Body = $contenido;

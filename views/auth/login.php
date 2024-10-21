@@ -2,6 +2,9 @@
 <div class="login">
     <form class="formulario" method="POST" action="/login">
         <h1>Iniciar Sesión</h1>
+        <?php
+            include_once __DIR__ . "/../templates/alerts.php";
+        ?>
         <div class="campo">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
