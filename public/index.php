@@ -30,5 +30,17 @@ $router->get('/message', [LoginController::class, 'message']);
 // Main page
 $router->get('/', [PagesController::class, 'index']);
 
+// Tags page
+$router->get('/tags', [PagesController::class, 'tags']);
+
+// Users page
+$router->get('/users', [PagesController::class, 'users']);
+
+// Unanswered page
+$router->get('/unanswered', [PagesController::class, 'unanswered']);
+
+// Questions page
+$router->get('/questions', [PagesController::class, 'questions']);
+
 // Checks and validates the routes that exist and assigns them the Controller functions
 $router->checkRoutes();
