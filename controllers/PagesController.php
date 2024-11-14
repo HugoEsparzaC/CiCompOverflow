@@ -2,11 +2,21 @@
 
 namespace Controllers;
 use MVC\Router;
+use Model\Usuario;
+use Model\Pregunta;
+use Model\Respuesta;
 
 Class PagesController {
     public static function index( Router $router ) {
         session_start();
-        $router->render('pages/index');
+        $numUsuarios = Usuario::countUsers();
+        $numPreguntas = Pregunta::countQuestions();
+        $numRespuestas = Respuesta::countAnswers();
+        $router->render('pages/index', [
+            'numUsuarios' => $numUsuarios,
+            'numPreguntas' => $numPreguntas,
+            'numRespuestas' => $numRespuestas
+        ]);
     }
 
     public static function questions( Router $router ) {

@@ -123,4 +123,11 @@ class Usuario extends ActiveRecord {
             return true;
         }
     }
+
+    public static function countUsers() {
+        $query = "SELECT COUNT(*) as count FROM " . self::$table;
+        $result = self::$db->query($query);
+        $row = $result->fetch_assoc();
+        return $row['count'];
+    }
 }

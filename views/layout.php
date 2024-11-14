@@ -35,6 +35,7 @@
                         <a href="/profile" class="profile-button">
                             <img src="build/img/user.png" alt="User" class="imagen-user">
                         </a>
+                        <a href="/logout" class="signup-button">Cerrar Sesión</a>
                         <button class="switch" id="switch">
                             <span>
                                 <img src="build/img/Sun.svg" alt="Sun">

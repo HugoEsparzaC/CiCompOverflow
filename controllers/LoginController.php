@@ -38,7 +38,9 @@ Class LoginController {
     }
 
     public static function logout( Router $router ) {
-        $router->render('pages/index');
+        session_start();
+        $_SESSION = [];
+        header('Location: /');
     }
 
     public static function forgotPassword( Router $router ) {

@@ -74,3 +74,30 @@ main {
     max-width: 2rem;
     margin-right: 0.5rem;
 }
+
+.metricas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+    .caja {
+        background-color: v.$indigo;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0rem;
+    }
+}
+
+.metricas .caja:nth-child(1) {
+    grid-column: span 2;
+}
+
+.metricas .caja:nth-child(3),
+.metricas .caja:nth-child(2) {
+    grid-column: span 1;
+}

@@ -11,7 +11,7 @@ $router = new Router();
 // Login page
 $router->get('/login', [LoginController::class, 'login']);
 $router->post('/login', [LoginController::class, 'login']);
-$router->get('/', [LoginController::class, 'logout']);
+$router->get('/logout', [LoginController::class, 'logout']);
 
 // Account Recovery
 $router->get('/forgot-password', [LoginController::class, 'forgotPassword']);

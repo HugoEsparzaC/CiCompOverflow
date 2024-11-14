@@ -12,6 +12,16 @@
         <img src="build/img/tags-white.svg" alt="Logo etiquetas" class="imagen-menu">
         Etiquetas
     </a>
+    <?php
+        if (isset($_SESSION['login'])) {
+            echo <<<'EOT'
+            <a href="/saves" class="pagina imagen-saves">
+                <img src="build/img/saves-white.svg" alt="Logo guardados" class="imagen-menu">
+                Guardados
+            </a>
+            EOT;
+        }
+    ?>
     <a href="/users" class="pagina imagen-users">
         <img src="build/img/users-white.svg" alt="Logo usuarios" class="imagen-menu">
         Usuarios
