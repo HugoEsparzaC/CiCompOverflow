@@ -34,6 +34,13 @@
 <!-- Contenido principal -->
 <main>
     <h1>Preguntas Principales</h1>
+    <?php
+        if (isset($_SESSION['login'])) {
+            echo <<<'EOT'
+            <a href="/ask" class="pregunta-nueva">Hacer una pregunta</a>
+            EOT;
+        }
+    ?>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quas id quidem quod magnam consectetur repellat, facilis illo vero deserunt est eaque explicabo maiores cum perspiciatis in sunt molestiae quo!</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quas id quidem quod magnam consectetur repellat, facilis illo vero deserunt est eaque explicabo maiores cum perspiciatis in sunt molestiae quo!</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quas id quidem quod magnam consectetur repellat, facilis illo vero deserunt est eaque explicabo maiores cum perspiciatis in sunt molestiae quo!</p>

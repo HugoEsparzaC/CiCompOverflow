@@ -48,5 +48,8 @@ $router->get('/saves', [PagesController::class, 'saves']);
 // Profile page
 $router->get('/profile', [PagesController::class, 'profile']);
 
+// Ask page
+$router->get('/ask', [PagesController::class, 'ask']);
+
 // Checks and validates the routes that exist and assigns them the Controller functions
 $router->checkRoutes();

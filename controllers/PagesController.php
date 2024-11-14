@@ -52,4 +52,13 @@ Class PagesController {
         }
         $router->render('pages/profile');
     }
+
+    public static function ask(Router $router) {
+        session_start();
+        if (!isset($_SESSION['login'])) {
+            header('Location: /login');
+            exit;
+        }
+        $router->render('pages/ask');
+    }
 }
