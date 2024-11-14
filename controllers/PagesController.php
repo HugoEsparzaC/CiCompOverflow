@@ -34,4 +34,22 @@ Class PagesController {
     public static function unanswered( Router $router ) {
         $router->render('pages/unanswered');
     }
+
+    public static function saves(Router $router) {
+        session_start();
+        if (!isset($_SESSION['login'])) {
+            header('Location: /login');
+            exit;
+        }
+        $router->render('pages/saves');
+    }
+
+    public static function profile(Router $router) {
+        session_start();
+        if (!isset($_SESSION['login'])) {
+            header('Location: /login');
+            exit;
+        }
+        $router->render('pages/profile');
+    }
 }

@@ -42,5 +42,11 @@ $router->get('/unanswered', [PagesController::class, 'unanswered']);
 // Questions page
 $router->get('/questions', [PagesController::class, 'questions']);
 
+// Saves page
+$router->get('/saves', [PagesController::class, 'saves']);
+
+// Profile page
+$router->get('/profile', [PagesController::class, 'profile']);
+
 // Checks and validates the routes that exist and assigns them the Controller functions
 $router->checkRoutes();
